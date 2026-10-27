@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Image Compressor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="logo">
+      <span class="logo-icon">◈</span>
+      Image Compressor
+    </a>
+
+    <button id="themeButton" class="theme-button">
+      🌙
+    </button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-badge">COMPRESS IMAGES EASILY</div>
+
+      <h1>
+        Smaller.
+        <span>Faster. Better.</span>
+      </h1>
+
+      <p>
+        Reduce image file size without uploading your images
+        to a server.
+      </p>
+    </section>
+
+    <section class="compressor-card">
+      <div id="dropZone" class="drop-zone">
+        <div class="upload-icon">⬆</div>
+
+        <h2>Drop your image here</h2>
+
+        <p>or click the button below to choose a file</p>
+
+        <label for="fileInput" class="upload-button">
+          Choose Image
+        </label>
+
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/jpeg,image/png,image/webp"
+          hidden
+        />
+
+        <small>JPG, PNG, or WebP up to 10 MB</small>
+      </div>
+
+      <p id="errorMessage" class="error-message"></p>
+
+      <section id="workspace" class="workspace hidden">
+        <div class="image-preview">
+          <div class="preview-heading">
+            <h2>Image Preview</h2>
+            <button id="resetButton" class="reset-button">
+              Reset
+            </button>
+          </div>
+
+          <img id="imagePreview" src="" alt="Selected image" />
+        </div>
+
+        <div class="controls">
+          <div class="file-info">
+            <span>File name</span>
+            <strong id="fileName">-</strong>
+          </div>
+
+          <div class="file-info">
+            <span>Original size</span>
+            <strong id="originalSize">-</strong>
+          </div>
+
+          <label for="qualityRange" class="quality-label">
+            Compression Quality
+            <strong id="qualityValue">70%</strong>
+          </label>
+
+          <input
+            type="range"
+            id="qualityRange"
+            min="10"
+            max="100"
+            value="70"
+          />
+
+          <div class="quality-levels">
+            <span>Smaller file</span>
+            <span>Better quality</span>
+          </div>
+
+          <label for="formatSelect" class="format-label">
+            Output Format
+          </label>
+
+          <select id="formatSelect">
+            <option value="image/jpeg">JPEG</option>
+            <option value="image/webp">WebP</option>
+            <option value="image/png">PNG</option>
+          </select>
+
+          <button id="compressButton" class="compress-button">
+            Compress Image
+          </button>
+        </div>
+      </section>
+
+      <section id="resultSection" class="result-section hidden">
+        <div class="result-heading">
+          <h2>Compression Result</h2>
+          <span id="compressionPercentage">0% smaller</span>
+        </div>
+
+        <div class="result-stats">
+          <div>
+            <span>Original</span>
+            <strong id="resultOriginalSize">-</strong>
+          </div>
+
+          <div>
+            <span>Compressed</span>
+            <strong id="compressedSize">-</strong>
+          </div>
+
+          <div>
+            <span>Saved</span>
+            <strong id="savedSize">-</strong>
+          </div>
+        </div>
+
+        <a
+          id="downloadButton"
+          class="download-button"
+          download="compressed-image.jpg"
+        >
+          ⬇ Download Compressed Image
+        </a>
+      </section>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <footer>
+    <p>Image Compressor</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
